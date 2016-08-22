@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5230621E8AAC2571B8A8714BE4149F65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		869DC4FD7B7142037D258F7684D77667 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B4C521A60B59BADA4F99893008FF21D3 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		AAC4B22CF4F9004DF1D95D9933B8DC22 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 82484B86B50DAE657B961218D05AB669 /* WeiboSDK.bundle */; };
+		B53B4826F120D7A807F1C64353761247 /* Pods-FShareDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C8BCF8808B16121CD8C048780EF1C9 /* Pods-FShareDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFD3DD90DD71E03C38D6AAE6FD9D6E37 /* Pods-FShareDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D8F6FF3FF319923545BE60151FDD43 /* Pods-FShareDemo-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5C7EE69F7D3E0668D68229387E375CC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87CF6F29B19AFF5CD10BBA72D1D16304;
+			remoteInfo = "FTencentSDK-TencentOpenApi";
+		};
+		6EB58E8A5E38A3482EFAD881BDE037EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0A16354C57176CA886B4B7C1B65FD95;
+			remoteInfo = "Weibo-Weibo";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A94D68BD30922F687F98E1430FD4435 /* libWeChatSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = SDKExport/libWeChatSDK.a; sourceTree = "<group>"; };
+		114F07D877AE88295B9C8D35EA80FFFF /* QQApiInterface.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QQApiInterface.h; path = TencentOpenApi/TencentOpenAPI.framework/Headers/QQApiInterface.h; sourceTree = "<group>"; };
+		133FEF2C1D607E2178FCED06BE55B230 /* ResourceBundle-Weibo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Weibo-Info.plist"; sourceTree = "<group>"; };
+		17FDF9F45D099AA754210FB58EA75613 /* WechatAuthSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WechatAuthSDK.h; path = SDKExport/WechatAuthSDK.h; sourceTree = "<group>"; };
+		1EA2137B4E1610A4BC19E904EF5E91FC /* WXApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = SDKExport/WXApi.h; sourceTree = "<group>"; };
+		1F72DF90A7F87D2553EC710979A53F69 /* Weibo.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Weibo.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		339E36DEC356143FAAD7427932E6EFE7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5174C63A892E1BF829973C7DB37CC089 /* libWeiboSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libWeiboSDK.a; path = libWeiboSDK/libWeiboSDK.a; sourceTree = "<group>"; };
+		525A96417260C8AD35E7B7B70A19F185 /* Pods-FShareDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FShareDemo-frameworks.sh"; sourceTree = "<group>"; };
+		5399D71E1D2B4EF68340F45708403900 /* Pods-FShareDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FShareDemo.release.xcconfig"; sourceTree = "<group>"; };
+		5E6B5857A7980678CB18B4CE5F5A185D /* Pods-FShareDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FShareDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		6776EB2ACD1AAECAFCBC284CB514878D /* Pods_FShareDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FShareDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7058F19D693995375D73B96D61028E92 /* TencentOAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TencentOAuth.h; path = TencentOpenApi/TencentOpenAPI.framework/Headers/TencentOAuth.h; sourceTree = "<group>"; };
+		70A3EF52BD91AECC708135EAA69102BA /* sdkdef.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = sdkdef.h; path = TencentOpenApi/TencentOpenAPI.framework/Headers/sdkdef.h; sourceTree = "<group>"; };
+		746012989969EB506840C230122938E4 /* TencentMessageObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TencentMessageObject.h; path = TencentOpenApi/TencentOpenAPI.framework/Headers/TencentMessageObject.h; sourceTree = "<group>"; };
+		82484B86B50DAE657B961218D05AB669 /* WeiboSDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = WeiboSDK.bundle; path = libWeiboSDK/WeiboSDK.bundle; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98BDB05956C27CF20C6D0235493B41AC /* Pods-FShareDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FShareDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9BBE5787260AEDB45E62F40A69C27748 /* WXApiObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = SDKExport/WXApiObject.h; sourceTree = "<group>"; };
+		9C6DAB21138A08E9CC8196C75DCEEE92 /* TencentApiInterface.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TencentApiInterface.h; path = TencentOpenApi/TencentOpenAPI.framework/Headers/TencentApiInterface.h; sourceTree = "<group>"; };
+		A6C8BCF8808B16121CD8C048780EF1C9 /* Pods-FShareDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FShareDemo-umbrella.h"; sourceTree = "<group>"; };
+		A7485C5F6264E96BA8201C280277125C /* WeiboSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WeiboSDK.h; path = libWeiboSDK/WeiboSDK.h; sourceTree = "<group>"; };
+		AB7AF52239A6F6D69111C74B6F724749 /* ResourceBundle-TencentOpenApi-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TencentOpenApi-Info.plist"; sourceTree = "<group>"; };
+		B4C521A60B59BADA4F99893008FF21D3 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = TencentOpenApi/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		B690C6DA0859CEFA9AFDD34CF9204757 /* TencentOpenApi.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TencentOpenApi.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E0AE7753D5B19E0938907652BE4F917A /* Pods-FShareDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FShareDemo.modulemap"; sourceTree = "<group>"; };
+		E38980AD7A470FF3A4A409C4008A604E /* Pods-FShareDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FShareDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E7D8F6FF3FF319923545BE60151FDD43 /* Pods-FShareDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FShareDemo-dummy.m"; sourceTree = "<group>"; };
+		F326C757B1B91D7EB07353B9BA36F19F /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = TencentOpenApi/TencentOpenAPI.framework; sourceTree = "<group>"; };
+		FB9CB48926EF266F7A01635BB38868AF /* TencentOAuthObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TencentOAuthObject.h; path = TencentOpenApi/TencentOpenAPI.framework/Headers/TencentOAuthObject.h; sourceTree = "<group>"; };
+		FCCD2D335CD6FCCD42E707734BB41CFD /* QQApiInterfaceObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QQApiInterfaceObject.h; path = TencentOpenApi/TencentOpenAPI.framework/Headers/QQApiInterfaceObject.h; sourceTree = "<group>"; };
+		FF206614FE3BEAF515F21A31259C5A23 /* Pods-FShareDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FShareDemo-resources.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FC3A75C3DD278296C71F1837D73119A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5230621E8AAC2571B8A8714BE4149F65 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0998AD60377E1562ACCDA58B22124F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B736F43545781C2BD05105A450EC626E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B1B1721CADBC5FB0B1FA0E8D314CCF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99F722F1C3DA46313619B686A2C2E189 /* FTencentSDK */,
+				F98D67EE586A5CAF9D85CA42DBA6DC45 /* FWeiXinSDK */,
+				803ECC123A82FC2E1F70ECC4348B1942 /* Weibo */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		646736F723AD135D84B9BECCD93FB955 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A94D68BD30922F687F98E1430FD4435 /* libWeChatSDK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				1B1B1721CADBC5FB0B1FA0E8D314CCF6 /* Pods */,
+				7DF1B5A792CE5D4B9E800D657BA08BAA /* Products */,
+				C946DAD5781695803615D61B526C45AA /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7DF1B5A792CE5D4B9E800D657BA08BAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6776EB2ACD1AAECAFCBC284CB514878D /* Pods_FShareDemo.framework */,
+				B690C6DA0859CEFA9AFDD34CF9204757 /* TencentOpenApi.bundle */,
+				1F72DF90A7F87D2553EC710979A53F69 /* Weibo.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		803ECC123A82FC2E1F70ECC4348B1942 /* Weibo */ = {
+			isa = PBXGroup;
+			children = (
+				A7485C5F6264E96BA8201C280277125C /* WeiboSDK.h */,
+				81802DAFC7280196D9A03C9FB0C8F0CC /* Frameworks */,
+				80CD2DBE2C871F00C42A6C6A926B80D8 /* Resources */,
+				BE3E77DA3E92269D1DA2D699983FD25B /* Support Files */,
+			);
+			path = Weibo;
+			sourceTree = "<group>";
+		};
+		80CD2DBE2C871F00C42A6C6A926B80D8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82484B86B50DAE657B961218D05AB669 /* WeiboSDK.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		81802DAFC7280196D9A03C9FB0C8F0CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5174C63A892E1BF829973C7DB37CC089 /* libWeiboSDK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99F722F1C3DA46313619B686A2C2E189 /* FTencentSDK */ = {
+			isa = PBXGroup;
+			children = (
+				114F07D877AE88295B9C8D35EA80FFFF /* QQApiInterface.h */,
+				FCCD2D335CD6FCCD42E707734BB41CFD /* QQApiInterfaceObject.h */,
+				70A3EF52BD91AECC708135EAA69102BA /* sdkdef.h */,
+				9C6DAB21138A08E9CC8196C75DCEEE92 /* TencentApiInterface.h */,
+				746012989969EB506840C230122938E4 /* TencentMessageObject.h */,
+				7058F19D693995375D73B96D61028E92 /* TencentOAuth.h */,
+				FB9CB48926EF266F7A01635BB38868AF /* TencentOAuthObject.h */,
+				B59B9F308C0CB61AD2343AF0BAC68DA5 /* Frameworks */,
+				FB83B931091F616BCFC2DE2606798346 /* Resources */,
+				D9F9020A63CBB2A84AC4B29B485AF280 /* Support Files */,
+			);
+			path = FTencentSDK;
+			sourceTree = "<group>";
+		};
+		B59B9F308C0CB61AD2343AF0BAC68DA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F326C757B1B91D7EB07353B9BA36F19F /* TencentOpenAPI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE3E77DA3E92269D1DA2D699983FD25B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				133FEF2C1D607E2178FCED06BE55B230 /* ResourceBundle-Weibo-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Weibo";
+			sourceTree = "<group>";
+		};
+		C411FF40C7D54AE21193565AC3E3A2B0 /* Pods-FShareDemo */ = {
+			isa = PBXGroup;
+			children = (
+				339E36DEC356143FAAD7427932E6EFE7 /* Info.plist */,
+				E0AE7753D5B19E0938907652BE4F917A /* Pods-FShareDemo.modulemap */,
+				E38980AD7A470FF3A4A409C4008A604E /* Pods-FShareDemo-acknowledgements.markdown */,
+				5E6B5857A7980678CB18B4CE5F5A185D /* Pods-FShareDemo-acknowledgements.plist */,
+				E7D8F6FF3FF319923545BE60151FDD43 /* Pods-FShareDemo-dummy.m */,
+				525A96417260C8AD35E7B7B70A19F185 /* Pods-FShareDemo-frameworks.sh */,
+				FF206614FE3BEAF515F21A31259C5A23 /* Pods-FShareDemo-resources.sh */,
+				A6C8BCF8808B16121CD8C048780EF1C9 /* Pods-FShareDemo-umbrella.h */,
+				98BDB05956C27CF20C6D0235493B41AC /* Pods-FShareDemo.debug.xcconfig */,
+				5399D71E1D2B4EF68340F45708403900 /* Pods-FShareDemo.release.xcconfig */,
+			);
+			name = "Pods-FShareDemo";
+			path = "Target Support Files/Pods-FShareDemo";
+			sourceTree = "<group>";
+		};
+		C946DAD5781695803615D61B526C45AA /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C411FF40C7D54AE21193565AC3E3A2B0 /* Pods-FShareDemo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		D9F9020A63CBB2A84AC4B29B485AF280 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB7AF52239A6F6D69111C74B6F724749 /* ResourceBundle-TencentOpenApi-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FTencentSDK";
+			sourceTree = "<group>";
+		};
+		F98D67EE586A5CAF9D85CA42DBA6DC45 /* FWeiXinSDK */ = {
+			isa = PBXGroup;
+			children = (
+				17FDF9F45D099AA754210FB58EA75613 /* WechatAuthSDK.h */,
+				1EA2137B4E1610A4BC19E904EF5E91FC /* WXApi.h */,
+				9BBE5787260AEDB45E62F40A69C27748 /* WXApiObject.h */,
+				646736F723AD135D84B9BECCD93FB955 /* Frameworks */,
+			);
+			path = FWeiXinSDK;
+			sourceTree = "<group>";
+		};
+		FB83B931091F616BCFC2DE2606798346 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B4C521A60B59BADA4F99893008FF21D3 /* TencentOpenApi_IOS_Bundle.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		459AB17A35C8E6ABF70FB8098734F4B4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B53B4826F120D7A807F1C64353761247 /* Pods-FShareDemo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		87CF6F29B19AFF5CD10BBA72D1D16304 /* FTencentSDK-TencentOpenApi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64A6E81E9FCDA649D1F4BEE5518D7F79 /* Build configuration list for PBXNativeTarget "FTencentSDK-TencentOpenApi" */;
+			buildPhases = (
+				85071970B647804A7927943113784D8E /* Sources */,
+				B736F43545781C2BD05105A450EC626E /* Frameworks */,
+				2251142014CEBD0D2A9E9C82BDFDA4FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FTencentSDK-TencentOpenApi";
+			productName = "FTencentSDK-TencentOpenApi";
+			productReference = B690C6DA0859CEFA9AFDD34CF9204757 /* TencentOpenApi.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		D588443F9D7D5C6B46D556BD705F7E6D /* Pods-FShareDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA02F6187A479423536F90CC7681B1B0 /* Build configuration list for PBXNativeTarget "Pods-FShareDemo" */;
+			buildPhases = (
+				7479E16F41B78BF7973C98BE25630C96 /* Sources */,
+				1FC3A75C3DD278296C71F1837D73119A /* Frameworks */,
+				459AB17A35C8E6ABF70FB8098734F4B4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF861957C910E68D8DB734A610373F82 /* PBXTargetDependency */,
+				A5095545FA7353BE1164FBE7829F5A7D /* PBXTargetDependency */,
+			);
+			name = "Pods-FShareDemo";
+			productName = "Pods-FShareDemo";
+			productReference = 6776EB2ACD1AAECAFCBC284CB514878D /* Pods_FShareDemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F0A16354C57176CA886B4B7C1B65FD95 /* Weibo-Weibo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D3D770943B3EBCD0BDA8E4ECABFD005 /* Build configuration list for PBXNativeTarget "Weibo-Weibo" */;
+			buildPhases = (
+				BDA7C0C44F2438DAB1875177D61FBAFD /* Sources */,
+				B0998AD60377E1562ACCDA58B22124F8 /* Frameworks */,
+				1211FA862DFECBF1CE74E3E1136F3858 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Weibo-Weibo";
+			productName = "Weibo-Weibo";
+			productReference = 1F72DF90A7F87D2553EC710979A53F69 /* Weibo.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 7DF1B5A792CE5D4B9E800D657BA08BAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				87CF6F29B19AFF5CD10BBA72D1D16304 /* FTencentSDK-TencentOpenApi */,
+				D588443F9D7D5C6B46D556BD705F7E6D /* Pods-FShareDemo */,
+				F0A16354C57176CA886B4B7C1B65FD95 /* Weibo-Weibo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1211FA862DFECBF1CE74E3E1136F3858 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAC4B22CF4F9004DF1D95D9933B8DC22 /* WeiboSDK.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2251142014CEBD0D2A9E9C82BDFDA4FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				869DC4FD7B7142037D258F7684D77667 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7479E16F41B78BF7973C98BE25630C96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFD3DD90DD71E03C38D6AAE6FD9D6E37 /* Pods-FShareDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85071970B647804A7927943113784D8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA7C0C44F2438DAB1875177D61FBAFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5095545FA7353BE1164FBE7829F5A7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Weibo-Weibo";
+			target = F0A16354C57176CA886B4B7C1B65FD95 /* Weibo-Weibo */;
+			targetProxy = 6EB58E8A5E38A3482EFAD881BDE037EB /* PBXContainerItemProxy */;
+		};
+		FF861957C910E68D8DB734A610373F82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "FTencentSDK-TencentOpenApi";
+			target = 87CF6F29B19AFF5CD10BBA72D1D16304 /* FTencentSDK-TencentOpenApi */;
+			targetProxy = 5C7EE69F7D3E0668D68229387E375CC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		5158AB226DAAF307384AE20A33407901 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5399D71E1D2B4EF68340F45708403900 /* Pods-FShareDemo.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-FShareDemo/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FShareDemo/Pods-FShareDemo.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_FShareDemo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		67A5978C69D0E3BD498A0E9D9D8D3BCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Weibo";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Weibo/ResourceBundle-Weibo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = Weibo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		81FC5FAED0FDE841113427862A0F8187 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98BDB05956C27CF20C6D0235493B41AC /* Pods-FShareDemo.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-FShareDemo/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FShareDemo/Pods-FShareDemo.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_FShareDemo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		985DB0094CB1D8DE407EA0E92568B1C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FTencentSDK";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/FTencentSDK/ResourceBundle-TencentOpenApi-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = TencentOpenApi;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		AAF678CED40D3499169D10F63CA0719E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B3A09067DE5C613861C2FF5A7318AD33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Weibo";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Weibo/ResourceBundle-Weibo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = Weibo;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		CE06A60151FDF0B7E635F89351D7F5CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FTencentSDK";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/FTencentSDK/ResourceBundle-TencentOpenApi-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = TencentOpenApi;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0D3D770943B3EBCD0BDA8E4ECABFD005 /* Build configuration list for PBXNativeTarget "Weibo-Weibo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3A09067DE5C613861C2FF5A7318AD33 /* Debug */,
+				67A5978C69D0E3BD498A0E9D9D8D3BCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47BEF9D903506B003EA5C2B249729489 /* Debug */,
+				AAF678CED40D3499169D10F63CA0719E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64A6E81E9FCDA649D1F4BEE5518D7F79 /* Build configuration list for PBXNativeTarget "FTencentSDK-TencentOpenApi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				985DB0094CB1D8DE407EA0E92568B1C2 /* Debug */,
+				CE06A60151FDF0B7E635F89351D7F5CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA02F6187A479423536F90CC7681B1B0 /* Build configuration list for PBXNativeTarget "Pods-FShareDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81FC5FAED0FDE841113427862A0F8187 /* Debug */,
+				5158AB226DAAF307384AE20A33407901 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -1,0 +1,18 @@
+PODS:
+  - FTencentSDK (0.0.2)
+  - FWeiXinSDK (0.0.3)
+  - Weibo (2.4.2)
+
+DEPENDENCIES:
+  - FTencentSDK (~> 0.0.2)
+  - FWeiXinSDK (~> 0.0.3)
+  - Weibo (~> 2.4.2)
+
+SPEC CHECKSUMS:
+  FTencentSDK: 70dda8c630ce2c743ccb1b20f67079672f255ace
+  FWeiXinSDK: 8147196f477878bc44451abaeb81b471f3718943
+  Weibo: ed569ffed6eb043a159ac3b01dc5122b4e1fd77a
+
+PODFILE CHECKSUM: e7cb2d7449fc6b58bce3e4cc0d587b23413fc715
+
+COCOAPODS: 1.0.1
