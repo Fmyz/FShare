@@ -8,6 +8,14 @@
 
 #import "FShareApi.h"
 
+@interface FShareApi ()
+
+@property (strong, nonatomic) FShareTencentAuthorize *tencentAuth;
+@property (strong, nonatomic) FShareWeiXinAuthorize *wxAuth;
+@property (strong, nonatomic) FShareSinaAuthorize *sinaAuth;
+
+@end
+
 @implementation FShareApi
 
 + (instancetype)manager
@@ -21,5 +29,12 @@
     });
     return manager;
 }
+
+//+ (BOOL)registerApp:(NSString *)appid type:(FShareRegisterType)type
+//{
+//
+//}
+
+
 
 @end

@@ -15,6 +15,9 @@
 		684EFA071D6AD3D10053E5D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 684EFA051D6AD3D10053E5D0 /* LaunchScreen.storyboard */; };
 		684EFA121D6AD3D10053E5D0 /* FShareDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EFA111D6AD3D10053E5D0 /* FShareDemoTests.m */; };
 		684EFA1D1D6AD3D10053E5D0 /* FShareDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EFA1C1D6AD3D10053E5D0 /* FShareDemoUITests.m */; };
+		684EFA421D6AFF180053E5D0 /* FShareAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EFA391D6AFF180053E5D0 /* FShareAuthorize.m */; };
+		684EFA431D6AFF180053E5D0 /* FShareApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EFA3B1D6AFF180053E5D0 /* FShareApi.m */; };
+		684EFA4B1D6B00710053E5D0 /* FShareDef.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EFA4A1D6B00710053E5D0 /* FShareDef.m */; };
 		E05CA42257EBCAD36A63336A /* Pods_FShareDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A80EBC7AA3613B9E7AB0B5B /* Pods_FShareDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +56,12 @@
 		684EFA181D6AD3D10053E5D0 /* FShareDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FShareDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		684EFA1C1D6AD3D10053E5D0 /* FShareDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FShareDemoUITests.m; sourceTree = "<group>"; };
 		684EFA1E1D6AD3D10053E5D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		684EFA381D6AFF180053E5D0 /* FShareAuthorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareAuthorize.h; sourceTree = "<group>"; };
+		684EFA391D6AFF180053E5D0 /* FShareAuthorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareAuthorize.m; sourceTree = "<group>"; };
+		684EFA3A1D6AFF180053E5D0 /* FShareApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareApi.h; sourceTree = "<group>"; };
+		684EFA3B1D6AFF180053E5D0 /* FShareApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareApi.m; sourceTree = "<group>"; };
+		684EFA491D6B00710053E5D0 /* FShareDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareDef.h; sourceTree = "<group>"; };
+		684EFA4A1D6B00710053E5D0 /* FShareDef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareDef.m; sourceTree = "<group>"; };
 		6A80EBC7AA3613B9E7AB0B5B /* Pods_FShareDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FShareDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB6D013EFAA4C16B13A0F09 /* Pods-FShareDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FShareDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FShareDemo/Pods-FShareDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +125,7 @@
 		684EF9F61D6AD3D10053E5D0 /* FShareDemo */ = {
 			isa = PBXGroup;
 			children = (
+				684EFA361D6AFF180053E5D0 /* Resources */,
 				684EF9FA1D6AD3D10053E5D0 /* AppDelegate.h */,
 				684EF9FB1D6AD3D10053E5D0 /* AppDelegate.m */,
 				684EF9FD1D6AD3D10053E5D0 /* ViewController.h */,
@@ -153,6 +163,28 @@
 				684EFA1E1D6AD3D10053E5D0 /* Info.plist */,
 			);
 			path = FShareDemoUITests;
+			sourceTree = "<group>";
+		};
+		684EFA361D6AFF180053E5D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				684EFA3A1D6AFF180053E5D0 /* FShareApi.h */,
+				684EFA3B1D6AFF180053E5D0 /* FShareApi.m */,
+				684EFA371D6AFF180053E5D0 /* Classes */,
+			);
+			name = Resources;
+			path = ../../Resources;
+			sourceTree = "<group>";
+		};
+		684EFA371D6AFF180053E5D0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				684EFA381D6AFF180053E5D0 /* FShareAuthorize.h */,
+				684EFA391D6AFF180053E5D0 /* FShareAuthorize.m */,
+				684EFA491D6B00710053E5D0 /* FShareDef.h */,
+				684EFA4A1D6B00710053E5D0 /* FShareDef.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		7D46CF64F0A2AA93C8E71AAF /* Pods */ = {
@@ -345,9 +377,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				684EFA421D6AFF180053E5D0 /* FShareAuthorize.m in Sources */,
 				684EF9FF1D6AD3D10053E5D0 /* ViewController.m in Sources */,
+				684EFA4B1D6B00710053E5D0 /* FShareDef.m in Sources */,
 				684EF9FC1D6AD3D10053E5D0 /* AppDelegate.m in Sources */,
 				684EF9F91D6AD3D10053E5D0 /* main.m in Sources */,
+				684EFA431D6AFF180053E5D0 /* FShareApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

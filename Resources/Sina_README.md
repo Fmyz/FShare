@@ -90,7 +90,7 @@
 </dict>
 </array>
 
-#4.scope权限接口
+#4.scope权限接口 微博开放平台第三方应用scope，多个scope用逗号分隔
 all                                 请求下列所有scope权限
 email                               用户的联系邮箱
 direct_messages_write               私信发送接口
