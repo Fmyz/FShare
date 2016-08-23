@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FShareAuthorize.h"
+#import "FShareSinaHandler.h"
+#import "FShareTencentHandler.h"
+#import "FShareWeiXinHanlder.h"
 #import "FShareDef.h"
 
 @interface FShareApi : NSObject
@@ -18,11 +20,11 @@
 /*! @brief 注册第三方应用。
  *
  * 需要在每次启动第三方应用程序时调用。
- * @param apps key为@(FShareRegisterType) value为appid
+ * @param apps key为@(FShareHandlerType) value为appID
  * @param type 开发者需要注册的应用
  * @return 成功返回YES，失败返回NO。
  */
-+ (BOOL)registerApps:(NSDictionary *)apps;
++ (void)registerApps:(NSDictionary *)apps;
 
 /*! @brief 注册第三方应用。
  *
@@ -31,25 +33,21 @@
  * @param type 开发者需要注册的应用
  * @return 成功返回YES，失败返回NO。
  */
-+ (BOOL)registerApp:(NSString *)appid type:(FShareRegisterType)type;
-
-
++ (void)registerApp:(NSString *)appID handlerType:(FShareHandlerType)handlerType;
 
 /*! @brief 发送登录请求
  *
- * @param oauthType 根据oauthType进行登录 有使用默认FShareAuthorize实例
+ * @param oauthType 根据handlerType进行登录,使用默认FShareParam
  * @return 成功返回YES，失败返回NO
  */
-+ (void)authorizeWithOAuthType:(FShareOAuthType)oauthType;
++ (void)authorizeWithHandlerType:(FShareHandlerType)handlerType;
 
 /*! @brief 发送登录请求
  *
- * @param authorize 授权对象实例
+ * @param param 登录参数, 请使用其子类
  * @return 成功返回YES，失败返回NO
  */
-+ (void)authorize:(FShareAuthorize *)authorize;
-
-
++ (void)authorizeWithParam:(FShareParam *)param;
 
 /*! @brief 处理微信通过URL启动App时传递的数据
  *

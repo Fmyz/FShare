@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		683B5A3C1D6C1BC9009D67A0 /* FShareSinaHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B5A3B1D6C1BC9009D67A0 /* FShareSinaHandler.m */; };
+		683B5A3F1D6C1BED009D67A0 /* FShareTencentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B5A3E1D6C1BED009D67A0 /* FShareTencentHandler.m */; };
+		683B5A421D6C1C00009D67A0 /* FShareWeiXinHanlder.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B5A411D6C1C00009D67A0 /* FShareWeiXinHanlder.m */; };
+		683B5A451D6C1C18009D67A0 /* FShareHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B5A441D6C1C18009D67A0 /* FShareHandler.m */; };
+		683B5A4F1D6C38F8009D67A0 /* FShareDef.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B5A4E1D6C38F8009D67A0 /* FShareDef.m */; };
 		684EF9F91D6AD3D10053E5D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EF9F81D6AD3D10053E5D0 /* main.m */; };
 		684EF9FC1D6AD3D10053E5D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EF9FB1D6AD3D10053E5D0 /* AppDelegate.m */; };
 		684EF9FF1D6AD3D10053E5D0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EF9FE1D6AD3D10053E5D0 /* ViewController.m */; };
@@ -15,9 +20,7 @@
 		684EFA071D6AD3D10053E5D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 684EFA051D6AD3D10053E5D0 /* LaunchScreen.storyboard */; };
 		684EFA121D6AD3D10053E5D0 /* FShareDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EFA111D6AD3D10053E5D0 /* FShareDemoTests.m */; };
 		684EFA1D1D6AD3D10053E5D0 /* FShareDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EFA1C1D6AD3D10053E5D0 /* FShareDemoUITests.m */; };
-		684EFA421D6AFF180053E5D0 /* FShareAuthorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EFA391D6AFF180053E5D0 /* FShareAuthorize.m */; };
 		684EFA431D6AFF180053E5D0 /* FShareApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EFA3B1D6AFF180053E5D0 /* FShareApi.m */; };
-		684EFA4B1D6B00710053E5D0 /* FShareDef.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EFA4A1D6B00710053E5D0 /* FShareDef.m */; };
 		E05CA42257EBCAD36A63336A /* Pods_FShareDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A80EBC7AA3613B9E7AB0B5B /* Pods_FShareDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,17 @@
 
 /* Begin PBXFileReference section */
 		19844951B3903AECA939F691 /* Pods-FShareDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FShareDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FShareDemo/Pods-FShareDemo.release.xcconfig"; sourceTree = "<group>"; };
+		683B5A3A1D6C1BC9009D67A0 /* FShareSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareSinaHandler.h; sourceTree = "<group>"; };
+		683B5A3B1D6C1BC9009D67A0 /* FShareSinaHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareSinaHandler.m; sourceTree = "<group>"; };
+		683B5A3D1D6C1BED009D67A0 /* FShareTencentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareTencentHandler.h; sourceTree = "<group>"; };
+		683B5A3E1D6C1BED009D67A0 /* FShareTencentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareTencentHandler.m; sourceTree = "<group>"; };
+		683B5A401D6C1C00009D67A0 /* FShareWeiXinHanlder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareWeiXinHanlder.h; sourceTree = "<group>"; };
+		683B5A411D6C1C00009D67A0 /* FShareWeiXinHanlder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareWeiXinHanlder.m; sourceTree = "<group>"; };
+		683B5A431D6C1C18009D67A0 /* FShareHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareHandler.h; sourceTree = "<group>"; };
+		683B5A441D6C1C18009D67A0 /* FShareHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareHandler.m; sourceTree = "<group>"; };
+		683B5A461D6C22CF009D67A0 /* FShareDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FShareDemo.pch; sourceTree = "<group>"; };
+		683B5A4D1D6C38F8009D67A0 /* FShareDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareDef.h; sourceTree = "<group>"; };
+		683B5A4E1D6C38F8009D67A0 /* FShareDef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareDef.m; sourceTree = "<group>"; };
 		684EF9F41D6AD3D10053E5D0 /* FShareDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FShareDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		684EF9F81D6AD3D10053E5D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		684EF9FA1D6AD3D10053E5D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,12 +70,8 @@
 		684EFA181D6AD3D10053E5D0 /* FShareDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FShareDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		684EFA1C1D6AD3D10053E5D0 /* FShareDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FShareDemoUITests.m; sourceTree = "<group>"; };
 		684EFA1E1D6AD3D10053E5D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		684EFA381D6AFF180053E5D0 /* FShareAuthorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareAuthorize.h; sourceTree = "<group>"; };
-		684EFA391D6AFF180053E5D0 /* FShareAuthorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareAuthorize.m; sourceTree = "<group>"; };
 		684EFA3A1D6AFF180053E5D0 /* FShareApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareApi.h; sourceTree = "<group>"; };
 		684EFA3B1D6AFF180053E5D0 /* FShareApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareApi.m; sourceTree = "<group>"; };
-		684EFA491D6B00710053E5D0 /* FShareDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareDef.h; sourceTree = "<group>"; };
-		684EFA4A1D6B00710053E5D0 /* FShareDef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareDef.m; sourceTree = "<group>"; };
 		6A80EBC7AA3613B9E7AB0B5B /* Pods_FShareDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FShareDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB6D013EFAA4C16B13A0F09 /* Pods-FShareDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FShareDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FShareDemo/Pods-FShareDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				684EF9F81D6AD3D10053E5D0 /* main.m */,
+				683B5A461D6C22CF009D67A0 /* FShareDemo.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -170,6 +181,8 @@
 			children = (
 				684EFA3A1D6AFF180053E5D0 /* FShareApi.h */,
 				684EFA3B1D6AFF180053E5D0 /* FShareApi.m */,
+				683B5A4D1D6C38F8009D67A0 /* FShareDef.h */,
+				683B5A4E1D6C38F8009D67A0 /* FShareDef.m */,
 				684EFA371D6AFF180053E5D0 /* Classes */,
 			);
 			name = Resources;
@@ -179,10 +192,14 @@
 		684EFA371D6AFF180053E5D0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				684EFA381D6AFF180053E5D0 /* FShareAuthorize.h */,
-				684EFA391D6AFF180053E5D0 /* FShareAuthorize.m */,
-				684EFA491D6B00710053E5D0 /* FShareDef.h */,
-				684EFA4A1D6B00710053E5D0 /* FShareDef.m */,
+				683B5A431D6C1C18009D67A0 /* FShareHandler.h */,
+				683B5A441D6C1C18009D67A0 /* FShareHandler.m */,
+				683B5A3A1D6C1BC9009D67A0 /* FShareSinaHandler.h */,
+				683B5A3B1D6C1BC9009D67A0 /* FShareSinaHandler.m */,
+				683B5A3D1D6C1BED009D67A0 /* FShareTencentHandler.h */,
+				683B5A3E1D6C1BED009D67A0 /* FShareTencentHandler.m */,
+				683B5A401D6C1C00009D67A0 /* FShareWeiXinHanlder.h */,
+				683B5A411D6C1C00009D67A0 /* FShareWeiXinHanlder.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -377,12 +394,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				684EFA421D6AFF180053E5D0 /* FShareAuthorize.m in Sources */,
+				683B5A3C1D6C1BC9009D67A0 /* FShareSinaHandler.m in Sources */,
+				683B5A421D6C1C00009D67A0 /* FShareWeiXinHanlder.m in Sources */,
 				684EF9FF1D6AD3D10053E5D0 /* ViewController.m in Sources */,
-				684EFA4B1D6B00710053E5D0 /* FShareDef.m in Sources */,
+				683B5A3F1D6C1BED009D67A0 /* FShareTencentHandler.m in Sources */,
 				684EF9FC1D6AD3D10053E5D0 /* AppDelegate.m in Sources */,
+				683B5A451D6C1C18009D67A0 /* FShareHandler.m in Sources */,
 				684EF9F91D6AD3D10053E5D0 /* main.m in Sources */,
 				684EFA431D6AFF180053E5D0 /* FShareApi.m in Sources */,
+				683B5A4F1D6C38F8009D67A0 /* FShareDef.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +546,8 @@
 			baseConfigurationReference = BCB6D013EFAA4C16B13A0F09 /* Pods-FShareDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FShareDemo/FShareDemo.pch;
 				INFOPLIST_FILE = FShareDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Fmyz.FShareDemo;
@@ -538,6 +560,8 @@
 			baseConfigurationReference = 19844951B3903AECA939F691 /* Pods-FShareDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FShareDemo/FShareDemo.pch;
 				INFOPLIST_FILE = FShareDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Fmyz.FShareDemo;
