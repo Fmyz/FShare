@@ -17,4 +17,6 @@
 
 - (void)authorizeWithParam:(FShareParam *)param;
 
+- (BOOL)handleOpenURL:(NSURL *)url;
+
 @end

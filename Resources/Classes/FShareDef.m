@@ -40,8 +40,21 @@ NSError* getError(NSString *domain, NSInteger code, NSDictionary *userInfo)
 + (instancetype)defaultParam
 {
     FShareSinaParam *param = [[FShareSinaParam alloc] init];
+    param.redirectURI = @"https://api.weibo.com/oauth2/default.html";
+    /*
+     all                                 请求下列所有scope权限
+     email                               用户的联系邮箱
+     direct_messages_write               私信发送接口
+     direct_messages_read                私信读取接口
+     invitation_write                    邀请发送接口
+     friendships_groups_read             好友分组读取接口组
+     friendships_groups_write            好友分组写入接口组
+     statuses_to_me_read                 定向微博读取接口组
+     follow_app_official_microblog       关注应用官方微博，该参数不对应具体接口，只需在应用控制台填写官方帐号即可。填写的路径：我的应用-选择自己的应用-应用信息-基本信息-官方运营账号（默认值是应用开发者帐号）
+     */
+    param.scope = @"all";
     
-    
+    param.userInfo = @{@"type": @"auth"};
     
     return param;
 }
@@ -84,7 +97,8 @@ NSError* getError(NSString *domain, NSInteger code, NSDictionary *userInfo)
 {
     FShareWeiXinParam *param = [[FShareWeiXinParam alloc] init];
     
-    param.scope = @"snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact";
+    //snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact
+    param.scope = @"snsapi_userinfo";
     param.state = [FShareParam nonceStr];
     
     return param;

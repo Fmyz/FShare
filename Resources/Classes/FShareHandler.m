@@ -10,6 +10,11 @@
 
 @implementation FShareHandler
 
-- (void)registerApp:(NSString *)appKey{/*子类重写该方法*/};
+- (void)registerApp:(NSString *)appKey{/*子类重写该方法*/}
+
+- (void)authorizeWithParam:(FShareParam *)param{/*子类重写该方法*/}
+
+/*子类重写该方法*/
+- (BOOL)handleOpenURL:(NSURL *)url{return NO;}
 
 @end
