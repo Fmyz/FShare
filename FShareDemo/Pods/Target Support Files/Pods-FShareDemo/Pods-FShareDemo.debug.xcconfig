@@ -1,10 +1,10 @@
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/FTencentSDK/TencentOpenApi"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FTencentSDK" "${PODS_ROOT}/Headers/Public/FWeiXinSDK" "${PODS_ROOT}/Headers/Public/Weibo"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FTencentSDK" "${PODS_ROOT}/Headers/Public/FWeiXinSDK" "${PODS_ROOT}/Headers/Public/WeiboSDK"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/FWeiXinSDK/SDKExport" $(inherited) "${PODS_ROOT}/Weibo/libWeiboSDK"
-OTHER_CFLAGS = $(inherited)  -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/FTencentSDK" -isystem "${PODS_ROOT}/Headers/Public/FWeiXinSDK" -isystem "${PODS_ROOT}/Headers/Public/Weibo"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"WeChatSDK" -l"WeiboSDK" -l"c++" -l"iconv" -l"sqlite3.0" -l"z" -framework "CoreGraphics" -framework "CoreTelephony" -framework "Security" -framework "SystemConfiguration" -framework "TencentOpenAPI"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/FWeiXinSDK/SDKExport" $(inherited) "${PODS_ROOT}/WeiboSDK/libWeiboSDK"
+OTHER_CFLAGS = $(inherited)  -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/FTencentSDK" -isystem "${PODS_ROOT}/Headers/Public/FWeiXinSDK" -isystem "${PODS_ROOT}/Headers/Public/WeiboSDK"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"WeChatSDK" -l"WeiboSDK" -l"c++" -l"iconv" -l"sqlite3" -l"sqlite3.0" -l"z" -framework "CoreGraphics" -framework "CoreTelephony" -framework "CoreText" -framework "Foundation" -framework "ImageIO" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration" -framework "TencentOpenAPI" -framework "UIKit"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods

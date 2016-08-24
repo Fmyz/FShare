@@ -121,5 +121,14 @@
     }
 }
 
++ (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message image:(UIImage *)image imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl
+{
 
+}
+
++ (BOOL)handleOpenURL:(NSURL *)url
+{
+    FShareApi *share = [FShareApi manager];
+    return [share.sinaHandler handleOpenURL:url] || [share.wxHandler handleOpenURL:url] || [share.tencentHandler handleOpenURL:url];
+}
 @end

@@ -49,6 +49,18 @@
  */
 + (void)authorizeWithParam:(FShareParam *)param;
 
+/*! @brief 发送分享
+ *
+ * @param scene 分享场景
+ * @param title 标题
+ * @param message 内容
+ * @param image 图片 有图片的话 填一个就可以
+ * @param imageData 图片二进制
+ * @param imageUrl 图片Url
+ * @param linkUrl 点击分享内容响应的URL
+ */
++ (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message image:(UIImage *)image imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl;
+
 /*! @brief 处理微信通过URL启动App时传递的数据
  *
  * 需要在 application:openURL:sourceApplication:annotation:或者application:handleOpenURL中调用。

@@ -17,4 +17,6 @@
 /*子类重写该方法*/
 - (BOOL)handleOpenURL:(NSURL *)url{return NO;}
 
+- (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message thumbImage:(UIImage *)thumbImage imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl{/*子类重写该方法*/};
+
 @end

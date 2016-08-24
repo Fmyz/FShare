@@ -7,6 +7,6 @@ target 'FShareDemo' do
 
 pod 'FWeiXinSDK', '~> 0.0.3'
 pod 'FTencentSDK', '~> 0.0.2'
-pod 'Weibo', '~> 2.4.2'
+pod 'WeiboSDK', '~> 3.1.3'
 
 end

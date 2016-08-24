@@ -7,11 +7,12 @@
 //
 
 #import "FShareSinaHandler.h"
-#import "FShareDef.h"
 
 #import "WeiboSDK.h"
 
 @interface FShareSinaHandler () <WeiboSDKDelegate>
+
+@property (copy, nonatomic) NSString *accessToken;
 
 @end
 
@@ -36,6 +37,25 @@
     request.scope = sinaParam.scope;
     request.userInfo = sinaParam.userInfo;
     [WeiboSDK sendRequest:request];
+}
+
+- (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message thumbImage:(UIImage *)thumbImage imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl
+{
+    NSData *preImageData;
+    if (imageData) {
+        preImageData = imageData;
+    }else if (thumbImage){
+        preImageData = UIImageJPEGRepresentation(thumbImage, 1);
+    }
+    WBImageObject *imageObj = nil;
+    if (preImageData) {
+        imageObj = [WBImageObject object];
+        imageObj.imageData = preImageData;
+    }
+    
+    [WBHttpRequest requestForShareAStatus:message contatinsAPicture:imageObj orPictureUrl:imageUrl withAccessToken:self.accessToken andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
+
+    }];
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url {

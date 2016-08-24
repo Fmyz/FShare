@@ -34,7 +34,7 @@
 			<key>FooterText</key>
 			<string></string>
 			<key>Title</key>
-			<string>Weibo</string>
+			<string>WeiboSDK</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

@@ -7,10 +7,8 @@
 //
 
 #import "FShareWeiXinHanlder.h"
-#import "FShareDef.h"
 
 #import "WXApi.h"
-#import "WechatAuthSDK.h"
 
 @interface FShareWeiXinHanlder () <WXApiDelegate>
 
@@ -36,6 +34,54 @@
     SendAuthReq *req = [[SendAuthReq alloc] init];
     req.scope = wxParam.scope;
     req.state = wxParam.state;
+    [WXApi sendReq:req];
+}
+
+- (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message thumbImage:(UIImage *)thumbImage imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl
+{
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.bText = (thumbImage == nil);
+    if (thumbImage) {
+        WXMediaMessage *mediaMessage = [WXMediaMessage message];
+        mediaMessage.title = title;
+        mediaMessage.description = message;
+        [mediaMessage setThumbImage:thumbImage];
+        
+        if (imageData) {
+            WXImageObject *mediaObject = [WXImageObject object];
+            mediaObject.imageData = imageData;
+            mediaMessage.mediaObject = mediaObject;
+        }else if (linkUrl){
+            WXWebpageObject *mediaObject = [WXWebpageObject object];
+            mediaObject.webpageUrl = linkUrl;
+            mediaMessage.mediaObject = mediaObject;
+        }
+        req.message = mediaMessage;
+    }else{
+        req.text = message;
+    }
+    
+    enum WXScene wxScene = WXSceneSession;
+    switch (scene) {
+        case FShareSceneWeiXinSession:
+        {
+            wxScene = WXSceneSession;
+        }
+            break;
+        case FShareSceneWeiXinTimeline:
+        {
+            wxScene = WXSceneTimeline;
+        }
+            break;
+        case FShareSceneFavorite:
+        {
+            wxScene = WXSceneFavorite;
+        }
+            break;
+        default:
+            break;
+    }
+    
     [WXApi sendReq:req];
 }
 

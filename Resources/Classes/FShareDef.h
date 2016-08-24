@@ -15,6 +15,20 @@ typedef NS_ENUM(NSInteger, FShareHandlerType) {
     FShareHandlerTypeWeiXin,   /*微信*/
 };
 
+typedef NS_ENUM(NSInteger, FShareScene) {
+    FShareSceneNone = 0,
+    
+    FShareSceneSina = 10, /*新浪微博*/
+    
+    /*共同支持QQApiNewsObject, QQApiAudioObject, QQApiVideoObject*/
+    FShareSceneTencentQQ = 20,  /*腾讯QQ*/ //单独支持QQApiTextObject, QQApiImageObject
+    FShareSceneTencentQZone,    /*腾讯QQ空间*/
+    
+    FShareSceneWeiXinSession = 30,   /*微信聊天界面*/
+    FShareSceneWeiXinTimeline,       /*微信朋友圈*/
+    FShareSceneFavorite,             /*微信收藏*/
+};
+
 NSError* getError(NSString *domain, NSInteger code, NSDictionary *userInfo);
 
 @interface FShareParam : NSObject
@@ -26,6 +40,7 @@ NSError* getError(NSString *domain, NSInteger code, NSDictionary *userInfo);
 @property (copy, nonatomic) NSString *shareMessage;
 @property (strong, nonatomic) UIImage *shareImage;
 @property (strong, nonatomic) NSData *shareImageData;
+@property (copy, nonatomic) NSString *shareImageUrl;
 @property (copy, nonatomic) NSString *shareLinkUrl;
 
 

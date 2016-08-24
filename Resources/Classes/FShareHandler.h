@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FShareDef.h"
 
-@class FShareParam;
 @interface FShareHandler : NSObject
 
 @property (copy, nonatomic) NSString *appID;
@@ -18,5 +18,7 @@
 - (void)authorizeWithParam:(FShareParam *)param;
 
 - (BOOL)handleOpenURL:(NSURL *)url;
+
+- (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message thumbImage:(UIImage *)thumbImage imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl;
 
 @end

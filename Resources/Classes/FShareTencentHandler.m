@@ -7,7 +7,6 @@
 //
 
 #import "FShareTencentHandler.h"
-#import "FShareDef.h"
 
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/TencentApiInterface.h>
@@ -35,6 +34,35 @@
     }
     tcParam = (FShareTencentParam *)param;
     [self.tcOAuth authorize:tcParam.permissions];
+}
+
+- (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message thumbImage:(UIImage *)thumbImage imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl
+{
+    QQApiNewsObject *newsObj;
+    
+    NSData *previewImageData = nil;
+    if (imageData) {
+        previewImageData = imageData;
+    }else if (thumbImage){
+        previewImageData = UIImageJPEGRepresentation(thumbImage, 1);
+    }
+    if (previewImageData) {
+        newsObj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:linkUrl] title:title description:message previewImageData:previewImageData targetContentType:QQApiURLTargetTypeNews];
+    }else if (imageUrl){
+        newsObj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:linkUrl] title:title description:message previewImageURL:[NSURL URLWithString:imageUrl] targetContentType:QQApiURLTargetTypeNews];
+    }
+   
+    if (scene == FShareSceneTencentQZone) {
+        [newsObj setCflag: kQQAPICtrlFlagQZoneShareOnStart];
+    }
+    SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:newsObj];
+    if (scene == FShareSceneTencentQQ) {
+        //将内容分享到qq
+        [QQApiInterface sendReq:req];
+    }else if (scene == FShareSceneTencentQZone){
+        //将内容分享到qzone
+        [QQApiInterface SendReqToQZone:req];
+    }
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url
