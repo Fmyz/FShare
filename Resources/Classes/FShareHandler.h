@@ -8,17 +8,27 @@
 
 #import <Foundation/Foundation.h>
 #import "FShareDef.h"
+#import "FShareParam.h"
+#import "FShareUser.h"
+
+typedef void(^AuthorizeComplete)(NSDictionary *authInfo, NSError *error);
+typedef void(^UseroComplete)(FShareUser *user, NSError *error);
 
 @interface FShareHandler : NSObject
 
 @property (copy, nonatomic) NSString *appID;
+@property (copy, nonatomic) AuthorizeComplete authorizeComplete;
+@property (copy, nonatomic) UseroComplete useroComplete;
+
+- (BOOL)isAppInstalled;
 
 - (void)registerApp:(NSString *)appID;
 
-- (void)authorizeWithParam:(FShareParam *)param;
+- (void)authorizeWithParam:(FShareOAuthParam *)param complete:(AuthorizeComplete)complete;
+
+- (void)shareWithParam:(FShareRequestParam *)param;
+
+- (void)userWithAccessToken:(NSString *)accessToken userId:(NSString *)userId complete:(UseroComplete)complete;
 
 - (BOOL)handleOpenURL:(NSURL *)url;
-
-- (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message thumbImage:(UIImage *)thumbImage imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl;
-
 @end

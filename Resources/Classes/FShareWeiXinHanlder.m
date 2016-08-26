@@ -12,10 +12,17 @@
 
 @interface FShareWeiXinHanlder () <WXApiDelegate>
 
+@property (copy, nonatomic) NSString *accessToken;
+
 @end
 
 
 @implementation FShareWeiXinHanlder
+
+- (BOOL)isAppInstalled
+{
+    return [WXApi isWXAppInstalled];
+}
 
 - (void)registerApp:(NSString *)appID
 {
@@ -23,13 +30,14 @@
     [WXApi registerApp:appID];
 }
 
-- (void)authorizeWithParam:(FShareParam *)param
+- (void)authorizeWithParam:(FShareParam *)param complete:(AuthorizeComplete)complete
 {
-    FShareWeiXinParam *wxParam = nil;
-    if (![param isKindOfClass:[FShareWeiXinParam class]]) {
+    FShareWeiXinOAuthParam *wxParam = nil;
+    if (![param isKindOfClass:[FShareWeiXinOAuthParam class]]) {
         return;
     }
-    wxParam = (FShareWeiXinParam *)param;
+    self.authorizeComplete = complete;
+    wxParam = (FShareWeiXinOAuthParam *)param;
     
     SendAuthReq *req = [[SendAuthReq alloc] init];
     req.scope = wxParam.scope;
@@ -37,32 +45,32 @@
     [WXApi sendReq:req];
 }
 
-- (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message thumbImage:(UIImage *)thumbImage imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl
+- (void)shareWithParam:(FShareRequestParam *)param
 {
     SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
-    req.bText = (thumbImage == nil);
-    if (thumbImage) {
+    req.bText = (param.thumbImage == nil);
+    if (param.thumbImage) {
         WXMediaMessage *mediaMessage = [WXMediaMessage message];
-        mediaMessage.title = title;
-        mediaMessage.description = message;
-        [mediaMessage setThumbImage:thumbImage];
+        mediaMessage.title = param.title;
+        mediaMessage.description = param.message;
+        [mediaMessage setThumbImage:param.thumbImage];
         
-        if (imageData) {
+        if (param.imageData) {
             WXImageObject *mediaObject = [WXImageObject object];
-            mediaObject.imageData = imageData;
+            mediaObject.imageData = param.imageData;
             mediaMessage.mediaObject = mediaObject;
-        }else if (linkUrl){
+        }else if (param.linkUrl){
             WXWebpageObject *mediaObject = [WXWebpageObject object];
-            mediaObject.webpageUrl = linkUrl;
+            mediaObject.webpageUrl = param.linkUrl;
             mediaMessage.mediaObject = mediaObject;
         }
         req.message = mediaMessage;
     }else{
-        req.text = message;
+        req.text = param.message;
     }
     
     enum WXScene wxScene = WXSceneSession;
-    switch (scene) {
+    switch (param.scene) {
         case FShareSceneWeiXinSession:
         {
             wxScene = WXSceneSession;
@@ -85,6 +93,35 @@
     [WXApi sendReq:req];
 }
 
+- (void)userWithAccessToken:(NSString *)accessToken userId:(NSString *)userId complete:(UseroComplete)complete
+{
+    NSString *url_str=[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",accessToken, userId];
+    
+    NSURL *url = [NSURL URLWithString:url_str];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *result_str = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+        NSData *result_data = [result_str dataUsingEncoding:NSUTF8StringEncoding];
+        if (result_data) {
+            
+            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:result_data options:NSJSONReadingMutableContainers error:nil];
+            
+            FShareUser *user = [FShareUser userbyTranslateWeiXinResult:result];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (complete) {
+                    complete(user, nil);
+                }
+            });
+            
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (complete) {
+                    complete(nil, getError(@"weixin user failed"));
+                }
+            });
+        }
+    });
+}
+
 - (BOOL)handleOpenURL:(NSURL *)url
 {
     return [WXApi handleOpenURL:url delegate:self];
@@ -94,22 +131,28 @@
 
 - (void)onResp:(BaseResp *)resp
 {
-    if ([resp isKindOfClass:[SendAuthResp class]]) {
+    if ([resp isKindOfClass:[SendAuthResp class]]) {//授权结果
+        
         SendAuthResp *response = (SendAuthResp *)resp;
-        if (response.errCode == 0) {
-//            [WeChatLogin getWXLoginAccess_tokenWithCode:response.code delegate:self];
-            
+
+        NSError *error = nil;
+        NSString *code = nil;
+        if (response.errCode == WXSuccess) {
+            code = response.code;
         }else{
-            NSString *errMsg = nil;
             if (resp.errCode == WXErrCodeUserCancel) {
-//                errMsg = STR(@"中途取消");
+                error = getError(@"user cancel");
             }else{
-//                errMsg = [NSString stringWithFormat:@"%@ code:%d",STR(@"其它错误"),resp.errCode];
+                error = getError(@"weixin authorize failed");
             }
-//            if(_loginComplete) {
-//                _loginComplete(nil,getError(errMsg));
-//            }
         }
+        if(self.authorizeComplete) {
+            NSDictionary *info = @{@"code":code};
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.authorizeComplete(info, error);
+            });
+        }
+
     }else  if([resp isKindOfClass:[SendMessageToWXResp class]]){
         if (resp.errCode==WXSuccess) {
           
@@ -129,3 +172,35 @@
 }
 
 @end
+
+@implementation FShareWeiXinHanlder (WeiXinExtension)
+
++ (void)weixinAccessTokenWithCode:(NSString *)code appid:(NSString *)appid appSecret:(NSString *)appSecret complete:(void (^)(NSString *, NSString *, NSError *))complete;
+{
+    NSString *url_str=[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code", appid, appSecret, code];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURL *url = [NSURL URLWithString:url_str];
+        NSString *result_str = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+        NSData *result_data = [result_str dataUsingEncoding:NSUTF8StringEncoding];
+        if (result_data) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:result_data options:NSJSONReadingMutableContainers error:nil];
+            NSString *accessToken = [dict objectForKey:@"access_token"];
+            NSString *openid = [dict objectForKey:@"openid"];/** 用户授权登录后对该用户的唯一标识 */
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (complete) {
+                    complete(accessToken, openid, nil);
+                }
+            });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (complete) {
+                    complete(nil, nil, getError(@"weixin AccessToken failed"));
+                }
+            });
+        }
+    });
+}
+
+@end
+

@@ -20,49 +20,64 @@
 
 @implementation FShareTencentHandler
 
+- (BOOL)isAppInstalled
+{
+    return [QQApiInterface isQQInstalled];
+}
+
 - (void)registerApp:(NSString *)appID
 {
     self.appID = appID;
     self.tcOAuth = [[TencentOAuth alloc] initWithAppId:appID andDelegate:self];
 }
 
-- (void)authorizeWithParam:(FShareParam *)param
+- (void)authorizeWithParam:(FShareParam *)param complete:(AuthorizeComplete)complete
 {
-    FShareTencentParam *tcParam = nil;
-    if (![param isKindOfClass:[FShareTencentParam class]]) {
+    FShareTencentOAuthParam *tcParam = nil;
+    if (![param isKindOfClass:[FShareTencentOAuthParam class]]) {
         return;
     }
-    tcParam = (FShareTencentParam *)param;
+    self.authorizeComplete = complete;
+    tcParam = (FShareTencentOAuthParam *)param;
     [self.tcOAuth authorize:tcParam.permissions];
 }
 
-- (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message thumbImage:(UIImage *)thumbImage imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl
+- (void)shareWithParam:(FShareRequestParam *)param
 {
     QQApiNewsObject *newsObj;
     
     NSData *previewImageData = nil;
-    if (imageData) {
-        previewImageData = imageData;
-    }else if (thumbImage){
-        previewImageData = UIImageJPEGRepresentation(thumbImage, 1);
+    if (param.imageData) {
+        previewImageData = param.imageData;
+    }else if (param.thumbImage){
+        previewImageData = UIImageJPEGRepresentation(param.thumbImage, 1);
     }
     if (previewImageData) {
-        newsObj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:linkUrl] title:title description:message previewImageData:previewImageData targetContentType:QQApiURLTargetTypeNews];
-    }else if (imageUrl){
-        newsObj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:linkUrl] title:title description:message previewImageURL:[NSURL URLWithString:imageUrl] targetContentType:QQApiURLTargetTypeNews];
+        newsObj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:param.linkUrl] title:param.title description:param.message previewImageData:previewImageData targetContentType:QQApiURLTargetTypeNews];
+    }else if (param.imageUrl){
+        newsObj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:param.linkUrl] title:param.title description:param.message previewImageURL:[NSURL URLWithString:param.imageUrl] targetContentType:QQApiURLTargetTypeNews];
     }
    
-    if (scene == FShareSceneTencentQZone) {
+    if (param.scene == FShareSceneTencentQZone) {
         [newsObj setCflag: kQQAPICtrlFlagQZoneShareOnStart];
     }
     SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:newsObj];
-    if (scene == FShareSceneTencentQQ) {
+    if (param.scene == FShareSceneTencentQQ) {
         //将内容分享到qq
         [QQApiInterface sendReq:req];
-    }else if (scene == FShareSceneTencentQZone){
+    }else if (param.scene == FShareSceneTencentQZone){
         //将内容分享到qzone
         [QQApiInterface SendReqToQZone:req];
     }
+}
+
+- (void)userWithAccessToken:(NSString *)accessToken userId:(NSString *)userId complete:(UseroComplete)complete
+{
+    [self.tcOAuth setAccessToken:accessToken];
+    [self.tcOAuth setOpenId:userId];
+    
+    self.useroComplete = complete;
+    [self.tcOAuth getUserInfo];
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url
@@ -76,7 +91,15 @@
  */
 - (void)tencentDidLogin
 {
-
+    NSString *accessToken = self.tcOAuth.accessToken;
+    NSString *openId = self.tcOAuth.openId;
+    
+    NSDictionary *info = @{@"accessToken":accessToken , @"openId":openId};
+    if (self.authorizeComplete) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.authorizeComplete(info, nil);
+        });
+    }
 }
 
 /**
@@ -85,7 +108,13 @@
  */
 - (void)tencentDidNotLogin:(BOOL)cancelled
 {
-
+    if (cancelled) {
+        if (self.authorizeComplete) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.authorizeComplete(nil, getError(@"tencent authorize cancel"));
+            });
+        }
+    }
 }
 
 /**
@@ -93,7 +122,12 @@
  */
 - (void)tencentDidNotNetWork
 {
-
+    if (self.authorizeComplete) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.authorizeComplete(nil, getError(@"tencent authorize not network"));
+        });
+    }
 }
 
 #pragma mark- TencentSessionDelegate
@@ -144,7 +178,21 @@
  */
 - (void)getUserInfoResponse:(APIResponse*) response
 {
-
+    if (response.retCode == URLREQUEST_SUCCEED)
+    {
+        FShareUser *user = [FShareUser userbyTranslateTencentResult:response.jsonResponse];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.useroComplete) {
+                self.useroComplete(user, nil);
+            }
+        });
+    }else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.useroComplete) {
+                self.useroComplete(nil, getError(@"tencent user failed"));
+            }
+        });
+    }
 }
 
 /**

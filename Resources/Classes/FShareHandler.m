@@ -10,13 +10,16 @@
 
 @implementation FShareHandler
 
+- (BOOL)isAppInstalled{return NO;/*子类重写该方法*/}
+
 - (void)registerApp:(NSString *)appKey{/*子类重写该方法*/}
 
-- (void)authorizeWithParam:(FShareParam *)param{/*子类重写该方法*/}
+- (void)authorizeWithParam:(FShareParam *)param complete:(AuthorizeComplete)complete{/*子类重写该方法*/}
 
-/*子类重写该方法*/
-- (BOOL)handleOpenURL:(NSURL *)url{return NO;}
+- (void)userWithAccessToken:(NSString *)accessToken userId:(NSString *)userId complete:(UseroComplete)complete{/*子类重写该方法*/}
 
-- (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message thumbImage:(UIImage *)thumbImage imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl{/*子类重写该方法*/};
+- (BOOL)handleOpenURL:(NSURL *)url{return NO;/*子类重写该方法*/}
+
+- (void)shareWithParam:(FShareRequestParam *)param{/*子类重写该方法*/}
 
 @end

@@ -12,11 +12,29 @@
 
 @interface FShareSinaHandler () <WeiboSDKDelegate>
 
-@property (copy, nonatomic) NSString *accessToken;
+/**
+ 用户ID
+ */
+@property (nonatomic, strong) NSString *userID;
+
+/**
+ 认证口令
+ */
+@property (nonatomic, strong) NSString *accessToken;
+
+/**
+ 认证过期时间
+ */
+@property (nonatomic, strong) NSDate *expirationDate;
 
 @end
 
 @implementation FShareSinaHandler
+
+- (BOOL)isAppInstalled
+{
+    return [WeiboSDK isWeiboAppInstalled];
+}
 
 - (void)registerApp:(NSString *)appID
 {
@@ -24,13 +42,15 @@
     [WeiboSDK registerApp:appID];
 }
 
-- (void)authorizeWithParam:(FShareParam *)param
+- (void)authorizeWithParam:(FShareParam *)param complete:(AuthorizeComplete)complete
 {
-    FShareSinaParam *sinaParam = nil;
-    if (![param isKindOfClass:[FShareSinaParam class]]) {
+    FShareSinaOAuthParam *sinaParam = nil;
+    if (![param isKindOfClass:[FShareSinaOAuthParam class]]) {
         return;
     }
-    sinaParam = (FShareSinaParam *)param;
+    
+    self.authorizeComplete = complete;
+    sinaParam = (FShareSinaOAuthParam *)param;
     
     WBAuthorizeRequest *request = [WBAuthorizeRequest request];
     request.redirectURI = sinaParam.redirectURI;
@@ -39,13 +59,13 @@
     [WeiboSDK sendRequest:request];
 }
 
-- (void)shareWithScene:(FShareScene)scene title:(NSString *)title message:(NSString *)message thumbImage:(UIImage *)thumbImage imageData:(NSData *)imageData imgaeUrl:(NSString *)imageUrl linkUrl:(NSString *)linkUrl
+- (void)shareWithParam:(FShareRequestParam *)param
 {
     NSData *preImageData;
-    if (imageData) {
-        preImageData = imageData;
-    }else if (thumbImage){
-        preImageData = UIImageJPEGRepresentation(thumbImage, 1);
+    if (param.imageData) {
+        preImageData = param.imageData;
+    }else if (param.thumbImage){
+        preImageData = UIImageJPEGRepresentation(param.thumbImage, 1);
     }
     WBImageObject *imageObj = nil;
     if (preImageData) {
@@ -53,13 +73,30 @@
         imageObj.imageData = preImageData;
     }
     
-    [WBHttpRequest requestForShareAStatus:message contatinsAPicture:imageObj orPictureUrl:imageUrl withAccessToken:self.accessToken andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
+    [WBHttpRequest requestForShareAStatus:param.message contatinsAPicture:imageObj orPictureUrl:param.imageUrl withAccessToken:self.accessToken andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
 
     }];
 }
 
-- (BOOL)handleOpenURL:(NSURL *)url {
-    return [WeiboSDK handleOpenURL:url delegate:self];
+- (void)userWithAccessToken:(NSString *)accessToken userId:(NSString *)userId complete:(UseroComplete)complete
+{
+    [WBHttpRequest requestForUserProfile:userId withAccessToken:accessToken andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
+        if (error) {
+            if (complete) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    complete(nil, error);
+                });
+            }
+        }else{
+            FShareUser *user = [FShareUser userbyTranslateSinaResult:result];
+            user.userId = userId;
+            if (complete) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                     complete(user, nil);
+                });
+            }
+        }
+    }];
 }
 
 #pragma mark- WeiboSDKDelegate
@@ -82,7 +119,33 @@
  */
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response
 {
+    if ([response isKindOfClass:WBAuthorizeResponse.class])
+    {//授权结果
+        WBAuthorizeResponse *res = (WBAuthorizeResponse*)response;
+        WeiboSDKResponseStatusCode statusCode = res.statusCode;
+        
+        NSError *error = nil;
+        
+        if(statusCode==WeiboSDKResponseStatusCodeSuccess)
+        {
+            self.accessToken = [(WBAuthorizeResponse *)response accessToken];
+            self.userID = [(WBAuthorizeResponse *)response userID];/** 用户授权登录后对该用户的唯一标识 */
+            self.expirationDate = [(WBAuthorizeResponse *)response expirationDate];
+        } else {
+            error = getError(@"sina authorize failed");
+        }
+        //回调授权结果
+        if (self.authorizeComplete) {
+            NSDictionary *info = @{@"accesstoken":self.accessToken, @"userID":self.userID};
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.authorizeComplete(info, error);
+            });
+        }
+    }
+}
 
+- (BOOL)handleOpenURL:(NSURL *)url {
+    return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
 @end

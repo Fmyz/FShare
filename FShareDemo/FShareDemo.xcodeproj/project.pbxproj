@@ -12,6 +12,8 @@
 		683B5A421D6C1C00009D67A0 /* FShareWeiXinHanlder.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B5A411D6C1C00009D67A0 /* FShareWeiXinHanlder.m */; };
 		683B5A451D6C1C18009D67A0 /* FShareHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B5A441D6C1C18009D67A0 /* FShareHandler.m */; };
 		683B5A521D6C3BA9009D67A0 /* FShareDef.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B5A511D6C3BA9009D67A0 /* FShareDef.m */; };
+		683E9A771D7011AC0092984B /* FShareParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 683E9A761D7011AC0092984B /* FShareParam.m */; };
+		683E9A7A1D7023390092984B /* FShareUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 683E9A791D7023390092984B /* FShareUser.m */; };
 		684EF9F91D6AD3D10053E5D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EF9F81D6AD3D10053E5D0 /* main.m */; };
 		684EF9FC1D6AD3D10053E5D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EF9FB1D6AD3D10053E5D0 /* AppDelegate.m */; };
 		684EF9FF1D6AD3D10053E5D0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684EF9FE1D6AD3D10053E5D0 /* ViewController.m */; };
@@ -54,6 +56,10 @@
 		683B5A461D6C22CF009D67A0 /* FShareDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FShareDemo.pch; sourceTree = "<group>"; };
 		683B5A501D6C3BA9009D67A0 /* FShareDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareDef.h; sourceTree = "<group>"; };
 		683B5A511D6C3BA9009D67A0 /* FShareDef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareDef.m; sourceTree = "<group>"; };
+		683E9A751D7011AC0092984B /* FShareParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareParam.h; sourceTree = "<group>"; };
+		683E9A761D7011AC0092984B /* FShareParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareParam.m; sourceTree = "<group>"; };
+		683E9A781D7023390092984B /* FShareUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShareUser.h; sourceTree = "<group>"; };
+		683E9A791D7023390092984B /* FShareUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FShareUser.m; sourceTree = "<group>"; };
 		684EF9F41D6AD3D10053E5D0 /* FShareDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FShareDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		684EF9F81D6AD3D10053E5D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		684EF9FA1D6AD3D10053E5D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -200,6 +206,10 @@
 				683B5A411D6C1C00009D67A0 /* FShareWeiXinHanlder.m */,
 				683B5A501D6C3BA9009D67A0 /* FShareDef.h */,
 				683B5A511D6C3BA9009D67A0 /* FShareDef.m */,
+				683E9A751D7011AC0092984B /* FShareParam.h */,
+				683E9A761D7011AC0092984B /* FShareParam.m */,
+				683E9A781D7023390092984B /* FShareUser.h */,
+				683E9A791D7023390092984B /* FShareUser.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -396,6 +406,7 @@
 			files = (
 				683B5A3C1D6C1BC9009D67A0 /* FShareSinaHandler.m in Sources */,
 				683B5A421D6C1C00009D67A0 /* FShareWeiXinHanlder.m in Sources */,
+				683E9A771D7011AC0092984B /* FShareParam.m in Sources */,
 				684EF9FF1D6AD3D10053E5D0 /* ViewController.m in Sources */,
 				683B5A3F1D6C1BED009D67A0 /* FShareTencentHandler.m in Sources */,
 				684EF9FC1D6AD3D10053E5D0 /* AppDelegate.m in Sources */,
@@ -403,6 +414,7 @@
 				684EF9F91D6AD3D10053E5D0 /* main.m in Sources */,
 				684EFA431D6AFF180053E5D0 /* FShareApi.m in Sources */,
 				683B5A521D6C3BA9009D67A0 /* FShareDef.m in Sources */,
+				683E9A7A1D7023390092984B /* FShareUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +559,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = FShareDemo/FShareDemo.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FShareDemo/FShareDemo.pch";
 				INFOPLIST_FILE = FShareDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Fmyz.FShareDemo;
@@ -561,7 +573,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = FShareDemo/FShareDemo.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FShareDemo/FShareDemo.pch";
 				INFOPLIST_FILE = FShareDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Fmyz.FShareDemo;
