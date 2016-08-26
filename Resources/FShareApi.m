@@ -8,12 +8,6 @@
 
 #import "FShareApi.h"
 
-
-
-
-
-
-
 @interface FShareApi ()
 
 @property (strong, nonatomic) FShareTencentHandler *tencentHandler;
@@ -23,6 +17,30 @@
 @end
 
 @implementation FShareApi
+
+- (FShareTencentHandler *)tencentHandler
+{
+    if (!_tencentHandler) {
+        _tencentHandler = [[FShareTencentHandler alloc] init];
+    }
+    return _tencentHandler;
+}
+
+- (FShareWeiXinHanlder *)wxHandler
+{
+    if (!_wxHandler) {
+        _wxHandler = [[FShareWeiXinHanlder alloc] init];
+    }
+    return _wxHandler;
+}
+
+- (FShareSinaHandler *)sinaHandler
+{
+    if (!_sinaHandler) {
+        _sinaHandler = [[FShareSinaHandler alloc] init];
+    }
+    return _sinaHandler;
+}
 
 + (instancetype)manager
 {
