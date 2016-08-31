@@ -184,6 +184,7 @@
     if (response.retCode == URLREQUEST_SUCCEED)
     {
         FShareUser *user = [FShareUser userbyTranslateTencentResult:response.jsonResponse];
+        user.userId = self.tcOAuth.openId;
         dispatch_async(dispatch_get_main_queue(), ^{
             if (self.useroComplete) {
                 self.useroComplete(user, nil);

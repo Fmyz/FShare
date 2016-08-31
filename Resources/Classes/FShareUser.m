@@ -49,7 +49,7 @@
 + (FShareUser *)userbyTranslateTencentResult:(id)result
 {
     FShareUser *user = [[FShareUser alloc] init];
-    user.handlerType = FShareHandlerTypeWeiXin;
+    user.handlerType = FShareHandlerTypeTencent;
     
     if ([result isKindOfClass:[NSDictionary class]]) {
         user.gender = [result objectForKey:@"gender"];
