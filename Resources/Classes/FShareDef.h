@@ -31,4 +31,3 @@ typedef NS_ENUM(NSInteger, FShareScene) {
 
 NSError* getError(NSString *errMsg);
 
-

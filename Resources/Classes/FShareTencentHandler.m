@@ -94,10 +94,13 @@
     NSString *accessToken = self.tcOAuth.accessToken;
     NSString *openId = self.tcOAuth.openId;
     
-    NSDictionary *info = @{@"accessToken":accessToken , @"openId":openId};
     if (self.authorizeComplete) {
+        FShareOAuthResult *oauthresult = [[FShareOAuthResult alloc] init];
+        oauthresult.accessToken = accessToken;
+        oauthresult.userId = openId;
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.authorizeComplete(info, nil);
+            self.authorizeComplete(oauthresult, nil);
         });
     }
 }

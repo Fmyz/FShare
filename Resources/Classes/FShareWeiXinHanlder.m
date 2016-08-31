@@ -147,9 +147,10 @@
             }
         }
         if(self.authorizeComplete) {
-            NSDictionary *info = @{@"code":code};
+            FShareOAuthResult *oauthresult = [[FShareOAuthResult alloc] init];
+            oauthresult.code = code;
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.authorizeComplete(info, error);
+                self.authorizeComplete(oauthresult, error);
             });
         }
 

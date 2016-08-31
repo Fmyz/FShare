@@ -11,7 +11,7 @@
 #import "FShareParam.h"
 #import "FShareUser.h"
 
-typedef void(^AuthorizeComplete)(NSDictionary *authInfo, NSError *error);
+typedef void(^AuthorizeComplete)(FShareOAuthResult *oauthresult, NSError *error);
 typedef void(^UseroComplete)(FShareUser *user, NSError *error);
 
 @interface FShareHandler : NSObject

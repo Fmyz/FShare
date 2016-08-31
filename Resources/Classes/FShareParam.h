@@ -25,6 +25,15 @@
 
 @end
 
+@interface FShareOAuthResult : FShareOAuthParam
+
+@property (copy, nonatomic) NSString *code; //微信返回
+
+@property (copy, nonatomic) NSString *userId; //腾讯openID 微博userid
+@property (copy, nonatomic) NSString *accessToken; //qq,微博de accesstoken
+
+@end
+
 @interface FShareSinaOAuthParam : FShareOAuthParam
 
 + (instancetype)defaultParam;

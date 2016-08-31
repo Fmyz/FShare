@@ -136,9 +136,11 @@
         }
         //回调授权结果
         if (self.authorizeComplete) {
-            NSDictionary *info = @{@"accesstoken":self.accessToken, @"userID":self.userID};
+            FShareOAuthResult *oauthresult = [[FShareOAuthResult alloc] init];
+            oauthresult.accessToken = self.accessToken;
+            oauthresult.userId = self.userID;
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.authorizeComplete(info, error);
+                self.authorizeComplete(oauthresult, error);
             });
         }
     }

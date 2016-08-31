@@ -34,6 +34,10 @@
 
 @end
 
+@implementation FShareOAuthResult
+
+
+@end
 
 @implementation FShareSinaOAuthParam
 
